@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nūr Salon &amp; Spa — Salon Concept | Digital Dukan</title>
+<meta name="description" content="Concept demo by Digital Dukan: a salon and spa website with transparent pricing and slot booking.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+  :root { --blush:#f4e4de; --rose:#c97b6c; --sage:#7f8f78; --ink:#2e2724; --cream:#fbf6f2; }
+  body { font-family: "Manrope", sans-serif; background: var(--cream); color: var(--ink); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+  .logo { font-family: "Italiana", serif; font-size: 32px; letter-spacing: .06em; }
+  .logo span { color: var(--rose); }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: 14px; }
+  .btn { display: inline-block; padding: 14px 26px; border-radius: 99px; background: var(--ink); color: var(--cream); font-weight: 700; font-size: 14px; border: 0; cursor: pointer; }
+  .btn:hover { background: var(--rose); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 40px 0 100px; }
+  .hero h1 { font-family: "Italiana", serif; font-weight: 400; font-size: clamp(54px, 8vw, 112px); line-height: .95; }
+  .hero h1 em { font-style: normal; color: var(--rose); }
+  .hero p { max-width: 420px; margin: 22px 0 32px; color: #6c5f59; line-height: 1.7; font-size: 17px; }
+  .arch { aspect-ratio: 4/5; border-radius: 300px 300px 24px 24px; background: linear-gradient(170deg, #e9c9bf, #c97b6c 60%, #8f5246); position: relative; overflow: hidden; }
+  .arch::before { content: ""; position: absolute; width: 70%; aspect-ratio: 1; border-radius: 50%; left: 15%; top: 18%; background: radial-gradient(circle at 40% 35%, rgba(255,255,255,.5), transparent 60%); }
+  .arch .badge { position: absolute; left: -10px; bottom: 30px; background: #fff; padding: 14px 18px; border-radius: 16px; font-size: 13px; font-weight: 700; box-shadow: 0 20px 40px -20px rgba(0,0,0,.3); }
+  .hero-wrap { position: relative; padding-left: 20px; }
+  section { padding: 100px 0; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--sage); }
+  h2 { font-family: "Italiana", serif; font-weight: 400; font-size: clamp(40px, 5vw, 64px); line-height: 1; margin-top: 12px; }
+  .services { background: var(--blush); }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+  .svc { background: var(--cream); border-radius: 24px; padding: 30px; }
+  .svc h3 { font-family: "Italiana", serif; font-size: 30px; font-weight: 400; margin-bottom: 18px; }
+  .svc ul { list-style: none; margin: 0; padding: 0; }
+  .svc li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eadad3; font-size: 15px; }
+  .svc li b { font-weight: 800; white-space: nowrap; }
+  .svc li label { display: flex; gap: 10px; cursor: pointer; align-items: center; }
+  .svc input { accent-color: var(--rose); width: 17px; height: 17px; }
+  .basket { position: sticky; bottom: 16px; margin-top: 30px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--ink); color: var(--cream); border-radius: 20px; padding: 18px 24px; }
+  .basket b { font-size: 20px; }
+  .book { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .slots { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 20px; }
+  .slots button { padding: 10px 16px; border-radius: 99px; border: 1.5px solid #e2cfc7; background: #fff; font-weight: 700; cursor: pointer; }
+  .slots button[aria-pressed="true"] { background: var(--sage); color: #fff; border-color: var(--sage); }
+  .slots button:disabled { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
+  .bform label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; margin-bottom: 14px; }
+  .bform input { padding: 14px; border-radius: 12px; border: 1.5px solid #e2cfc7; background: #fff; }
+  .pk { background: var(--sage); color: #fff; border-radius: 24px; padding: 34px; }
+  .pk h3 { font-family: "Italiana", serif; font-size: 34px; font-weight: 400; }
+  .pk p { opacity: .85; margin: 10px 0 20px; line-height: 1.7; }
+  footer { padding: 40px 0; text-align: center; color: #8c7d76; font-size: 14px; }
+  @media (max-width: 900px) { .nav ul { display: none; } .hero, .svc-grid, .book { grid-template-columns: 1fr; } .arch { max-width: 360px; } }
+</style>
+</head>
+<body>
+<div class="dd-banner"><span><b>Concept demo</b> by Digital Dukan — a fictional business, not a client project.</span><a href="../index.html#contact">Get a website like this</a></div>
+
+<header class="wrap nav">
+  <div class="logo">N<span>ū</span>r</div>
+  <nav aria-label="Main"><ul><li><a href="#services">Services</a></li><li><a href="#book">Book</a></li><li><a href="#bridal">Bridal</a></li></ul></nav>
+  <a class="btn" href="#book">Book a slot</a>
+</header>
+
+<main>
+  <section class="wrap hero" style="padding-top:30px" aria-labelledby="h1">
+    <div>
+      <p class="eyebrow">Salon · Spa · Bridal studio</p>
+      <h1 id="h1">Slow down.<br>Glow <em>up.</em></h1>
+      <p>Thoughtful hair, skin and spa rituals in a calm, unhurried space — with prices you can see before you sit down.</p>
+      <a class="btn" href="#services">Build your visit</a>
+    </div>
+    <div class="hero-wrap"><div class="arch ph" data-label="Studio photography"><span class="badge">Open today · 10 am – 8 pm</span></div></div>
+  </section>
+
+  <section class="services" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <p class="eyebrow">Service menu</p>
+      <h2 id="svc-h">Choose your ritual.</h2>
+      <div class="svc-grid">
+        <div class="svc reveal"><h3>Hair</h3><ul>
+          <li><label><input type="checkbox" data-p="650" data-n="Haircut &amp; style">Haircut &amp; style</label><b>₹650</b></li>
+          <li><label><input type="checkbox" data-p="2400" data-n="Global colour">Global colour</label><b>₹2,400</b></li>
+          <li><label><input type="checkbox" data-p="1800" data-n="Keratin spa">Keratin spa</label><b>₹1,800</b></li>
+        </ul></div>
+        <div class="svc reveal"><h3>Skin</h3><ul>
+          <li><label><input type="checkbox" data-p="1500" data-n="Hydra facial">Hydra facial</label><b>₹1,500</b></li>
+          <li><label><input type="checkbox" data-p="900" data-n="Clean-up">Clean-up</label><b>₹900</b></li>
+          <li><label><input type="checkbox" data-p="450" data-n="Threading &amp; wax">Threading &amp; wax</label><b>₹450</b></li>
+        </ul></div>
+        <div class="svc reveal"><h3>Spa</h3><ul>
+          <li><label><input type="checkbox" data-p="2200" data-n="Swedish massage (60m)">Swedish massage · 60m</label><b>₹2,200</b></li>
+          <li><label><input type="checkbox" data-p="1200" data-n="Foot reflexology">Foot reflexology</label><b>₹1,200</b></li>
+          <li><label><input type="checkbox" data-p="800" data-n="Head massage">Head massage</label><b>₹800</b></li>
+        </ul></div>
+      </div>
+      <div class="basket" aria-live="polite"><span id="sel">No services selected yet</span><span>Estimated: <b id="total">₹0</b></span><a class="btn" style="background:var(--rose)" href="#book">Pick a time →</a></div>
+    </div>
+  </section>
+
+  <section id="book" aria-labelledby="book-h">
+    <div class="wrap book">
+      <form class="bform" data-demo="Concept demo — on a live site this booking goes straight to the salon's WhatsApp.">
+        <p class="eyebrow">Book a slot</p>
+        <h2 id="book-h">When suits you?</h2>
+        <label style="margin-top:24px">Date<input type="date" required></label>
+        <p style="font-size:13px;font-weight:700">Available times</p>
+        <div class="slots" id="slots">
+          <button type="button" aria-pressed="false">10:00</button><button type="button" aria-pressed="false" disabled>11:30</button><button type="button" aria-pressed="false">1:00</button><button type="button" aria-pressed="false">2:30</button><button type="button" aria-pressed="false" disabled>4:00</button><button type="button" aria-pressed="false">5:30</button><button type="button" aria-pressed="false">7:00</button>
+        </div>
+        <label>Name<input required></label>
+        <label>Phone<input type="tel" required pattern="[0-9+ ]{10,14}"></label>
+        <button class="btn" type="submit">Confirm booking</button>
+      </form>
+      <div class="pk reveal" id="bridal">
+        <p class="eyebrow" style="color:#e6efe2">Bridal &amp; packages</p>
+        <h3>The Bridal Journey</h3>
+        <p>Pre-bridal skin and hair sessions over six weeks, a trial look, and on-the-day styling for you and your family.</p>
+        <a class="btn" style="background:#fff;color:var(--ink)" href="#demo">Enquire about bridal</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Nūr Salon &amp; Spa — a concept by Digital Dukan</footer>
+<script src="demo.js"></script>
+<script>
+  (function () {
+    const boxes = document.querySelectorAll(".svc input");
+    const sel = document.getElementById("sel"), tot = document.getElementById("total");
+    const upd = () => {
+      const on = [...boxes].filter((b) => b.checked);
+      const sum = on.reduce((s, b) => s + +b.dataset.p, 0);
+      tot.textContent = "₹" + sum.toLocaleString("en-IN");
+      sel.textContent = on.length ? on.map((b) => b.dataset.n.replace("&amp;", "&")).join(" · ") : "No services selected yet";
+    };
+    boxes.forEach((b) => b.addEventListener("change", upd));
+    const slots = document.querySelectorAll("#slots button");
+    slots.forEach((s) => s.addEventListener("click", () => slots.forEach((o) => o.setAttribute("aria-pressed", String(o === s)))));
+  })();
+</script>
+</body>
+</html>

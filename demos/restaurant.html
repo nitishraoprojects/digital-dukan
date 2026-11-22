@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tandoor &amp; Tales — Restaurant Concept | Digital Dukan</title>
+<meta name="description" content="Concept demo by Digital Dukan: a modern Indian restaurant website with a filterable menu and table reservations.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+  :root { --char:#1c0f0d; --ember:#b83a26; --saffron:#f0a04b; --cream:#f5e6d3; }
+  body { font-family: "Manrope", sans-serif; background: var(--char); color: var(--cream); }
+  .serif { font-family: "DM Serif Display", serif; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+  .logo { font-family: "DM Serif Display", serif; font-size: 26px; }
+  .logo em { color: var(--saffron); }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: 14px; }
+  .nav a:hover { color: var(--saffron); }
+  .pill { padding: 11px 22px; border-radius: 99px; background: var(--ember); font-weight: 800; font-size: 14px; }
+  .pill:hover { background: var(--saffron); color: var(--char); }
+  .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; padding: 60px 0 110px; }
+  .hero h1 { font-family: "DM Serif Display", serif; font-weight: 400; font-size: clamp(56px, 8vw, 116px); line-height: .92; letter-spacing: -.02em; }
+  .hero h1 em { color: var(--saffron); }
+  .hero p { max-width: 440px; margin: 24px 0 34px; color: rgba(245,230,211,.75); font-size: 17px; line-height: 1.7; }
+  .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .ghost { padding: 11px 22px; border-radius: 99px; border: 1px solid rgba(245,230,211,.3); font-weight: 700; font-size: 14px; }
+  .ghost:hover { border-color: var(--saffron); color: var(--saffron); }
+  .plate { aspect-ratio: 1; border-radius: 50%; position: relative; background: radial-gradient(circle at 50% 50%, #3a1c14 0 34%, #2a1410 35% 58%, #1f0f0c 59% 100%); box-shadow: 0 40px 80px rgba(0,0,0,.5), inset 0 0 0 14px #2c1611; }
+  .plate::before { content: ""; position: absolute; inset: 24%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #f0a04b, #c4561f 45%, #7d2a12 80%); filter: blur(.5px); animation: steam 6s ease-in-out infinite; }
+  .plate::after { content: "Smoked Paneer Tikka · ₹340"; position: absolute; bottom: 4%; right: -2%; padding: 10px 16px; border-radius: 99px; background: var(--cream); color: var(--char); font-weight: 800; font-size: 13px; }
+  @keyframes steam { 50% { transform: scale(1.03) rotate(3deg); } }
+  .hours { display: flex; gap: 28px; margin-top: 40px; font-size: 13px; color: rgba(245,230,211,.6); }
+  .hours b { display: block; color: var(--cream); font-size: 15px; }
+  section { padding: 100px 0; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--saffron); }
+  h2 { font-family: "DM Serif Display", serif; font-weight: 400; font-size: clamp(40px, 5vw, 68px); line-height: 1; margin-top: 12px; }
+  .menu { background: var(--cream); color: var(--char); }
+  .menu .eyebrow { color: var(--ember); }
+  .menu-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 24px; margin-bottom: 40px; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filters button { padding: 10px 18px; border-radius: 99px; border: 1.5px solid #d9c3a5; background: transparent; font-weight: 700; cursor: pointer; transition: all .3s; }
+  .filters button[aria-pressed="true"] { background: var(--char); color: var(--cream); border-color: var(--char); }
+  .veg-toggle { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; cursor: pointer; margin-left: 8px; }
+  .dishes { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+  .dish { display: flex; gap: 16px; padding: 22px 0; border-bottom: 1px dashed #d9c3a5; transition: opacity .3s; }
+  .dish.hide { display: none; }
+  .tag { flex: none; width: 16px; height: 16px; border: 1.5px solid; border-radius: 3px; display: grid; place-items: center; margin-top: 6px; }
+  .tag::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .tag.v { color: #2c8a3f; } .tag.n { color: #a62c1e; }
+  .dish h3 { font-family: "DM Serif Display", serif; font-weight: 400; font-size: 23px; }
+  .dish p { color: #6b5845; font-size: 14px; margin-top: 4px; }
+  .dish .pr { margin-left: auto; font-weight: 800; white-space: nowrap; }
+  .order { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; align-items: center; font-weight: 700; }
+  .order a { padding: 10px 18px; border-radius: 10px; background: #fff; border: 1px solid #e5d3b8; }
+  .reserve { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .reserve p { color: rgba(245,230,211,.7); margin-top: 18px; line-height: 1.7; }
+  .rform { background: #2a1612; padding: 32px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rform label { font-size: 12px; font-weight: 700; color: rgba(245,230,211,.6); display: grid; gap: 6px; }
+  .rform input, .rform select { padding: 13px 14px; border-radius: 10px; border: 1px solid rgba(245,230,211,.15); background: #1c0f0d; color: var(--cream); color-scheme: dark; }
+  .rform .full { grid-column: 1 / -1; }
+  .rform button { grid-column: 1 / -1; padding: 15px; border: 0; border-radius: 10px; background: var(--saffron); color: var(--char); font-weight: 800; cursor: pointer; }
+  .rform button:hover { background: var(--cream); }
+  footer { border-top: 1px solid rgba(245,230,211,.12); padding: 40px 0; font-size: 14px; color: rgba(245,230,211,.6); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  @media (max-width: 860px) {
+    .nav ul { display: none; }
+    .hero, .reserve, .dishes { grid-template-columns: 1fr; }
+    .plate { max-width: 340px; margin: 0 auto; }
+    .rform { grid-template-columns: 1fr; }
+    section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="dd-banner"><span><b>Concept demo</b> by Digital Dukan — a fictional business, not a client project.</span><a href="../index.html#contact">Get a website like this</a></div>
+
+<header class="wrap nav">
+  <div class="logo">Tandoor <em>&amp; Tales</em></div>
+  <nav aria-label="Main"><ul><li><a href="#menu">Menu</a></li><li><a href="#reserve">Reserve</a></li><li><a href="#visit">Visit</a></li></ul></nav>
+  <a class="pill" href="#reserve">Book a table</a>
+</header>
+
+<main>
+  <section class="wrap hero" style="padding-top:40px" aria-labelledby="h1">
+    <div>
+      <p class="eyebrow">North Indian · Open fire kitchen</p>
+      <h1 id="h1">Every dish<br>has a <em>story.</em></h1>
+      <p>Recipes carried from Amritsar's lanes, cooked slow over charcoal and served the way they were meant to be — generous, smoky and shared.</p>
+      <div class="cta"><a class="pill" href="#reserve">Reserve a table</a><a class="ghost" href="#menu">See the menu</a></div>
+      <div class="hours"><div><b>Lunch</b>12 – 3:30 pm</div><div><b>Dinner</b>7 – 11:30 pm</div><div><b>Closed</b>Mondays</div></div>
+    </div>
+    <div class="plate" role="img" aria-label="Illustration of a signature dish"></div>
+  </section>
+
+  <section class="menu" id="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div class="menu-head">
+        <div><p class="eyebrow">The menu</p><h2 id="menu-h">Made to be shared.</h2></div>
+        <div class="filters" role="group" aria-label="Filter menu">
+          <button aria-pressed="true" data-f="all">All</button>
+          <button aria-pressed="false" data-f="starters">Starters</button>
+          <button aria-pressed="false" data-f="mains">Mains</button>
+          <button aria-pressed="false" data-f="breads">Breads</button>
+          <button aria-pressed="false" data-f="desserts">Desserts</button>
+          <label class="veg-toggle"><input type="checkbox" id="vegOnly"> Veg only</label>
+        </div>
+      </div>
+      <div class="dishes" id="dishes">
+        <div class="dish" data-c="starters" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Smoked Paneer Tikka</h3><p>Hung-curd marinade, charcoal kissed, mint chutney</p></div><span class="pr">₹340</span></div>
+        <div class="dish" data-c="starters" data-veg="0"><span class="tag n" aria-label="Non-vegetarian"></span><div><h3>Amritsari Fish</h3><p>Carom-spiced batter, lemon, chaat masala</p></div><span class="pr">₹420</span></div>
+        <div class="dish" data-c="starters" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Tandoori Mushroom</h3><p>Stuffed with cheese and green chilli</p></div><span class="pr">₹310</span></div>
+        <div class="dish" data-c="mains" data-veg="0"><span class="tag n" aria-label="Non-vegetarian"></span><div><h3>Butter Chicken</h3><p>The classic — tandoor chicken in tomato-butter gravy</p></div><span class="pr">₹460</span></div>
+        <div class="dish" data-c="mains" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Dal Makhani</h3><p>Black lentils, slow-cooked overnight</p></div><span class="pr">₹290</span></div>
+        <div class="dish" data-c="mains" data-veg="0"><span class="tag n" aria-label="Non-vegetarian"></span><div><h3>Rara Gosht</h3><p>Mutton cooked with mince, whole spices</p></div><span class="pr">₹540</span></div>
+        <div class="dish" data-c="breads" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Butter Naan</h3><p>From our clay oven</p></div><span class="pr">₹70</span></div>
+        <div class="dish" data-c="breads" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Amritsari Kulcha</h3><p>Stuffed with spiced potato, served with chole</p></div><span class="pr">₹180</span></div>
+        <div class="dish" data-c="desserts" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Phirni</h3><p>Rice pudding set in clay, rose and pistachio</p></div><span class="pr">₹160</span></div>
+        <div class="dish" data-c="desserts" data-veg="1"><span class="tag v" aria-label="Vegetarian"></span><div><h3>Gulab Jamun</h3><p>Warm, with a scoop of malai</p></div><span class="pr">₹150</span></div>
+      </div>
+      <div class="order"><span>Order home delivery:</span><a href="#demo">Zomato</a><a href="#demo">Swiggy</a><a href="#demo">WhatsApp order</a></div>
+    </div>
+  </section>
+
+  <section id="reserve" aria-labelledby="res-h">
+    <div class="wrap reserve">
+      <div class="reveal">
+        <p class="eyebrow">Reservations</p>
+        <h2 id="res-h">Save your seat<br>at the fire.</h2>
+        <p>Weekends fill up fast. Book in seconds — your reservation is confirmed by us personally on WhatsApp.</p>
+      </div>
+      <form class="rform reveal" data-demo="Concept demo — on a live site this reservation lands instantly in the restaurant's WhatsApp.">
+        <label class="full">Name<input required placeholder="Your name"></label>
+        <label>Date<input type="date" required></label>
+        <label>Time<select required><option value="">Select</option><option>12:30 pm</option><option>1:30 pm</option><option>7:30 pm</option><option>8:30 pm</option><option>9:30 pm</option></select></label>
+        <label>Guests<select><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></label>
+        <label>Phone<input type="tel" required pattern="[0-9+ ]{10,14}" placeholder="10-digit mobile"></label>
+        <button type="submit">Request reservation</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="visit"><div class="wrap"><span>Tandoor &amp; Tales — a concept by Digital Dukan</span><span>Directions on Google Maps · Call · WhatsApp</span></div></footer>
+<script src="demo.js"></script>
+<script>
+  (function () {
+    const btns = document.querySelectorAll(".filters button");
+    const veg = document.getElementById("vegOnly");
+    let cat = "all";
+    const apply = () => document.querySelectorAll(".dish").forEach((d) => {
+      const show = (cat === "all" || d.dataset.c === cat) && (!veg.checked || d.dataset.veg === "1");
+      d.classList.toggle("hide", !show);
+    });
+    btns.forEach((b) => b.addEventListener("click", () => { cat = b.dataset.f; btns.forEach((x) => x.setAttribute("aria-pressed", String(x === b))); apply(); }));
+    veg.addEventListener("change", apply);
+  })();
+</script>
+</body>
+</html>

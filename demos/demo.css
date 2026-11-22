@@ -1,0 +1,37 @@
+/* Shared base for Digital Dukan concept demos */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+h1, h2, h3, p { margin: 0; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+.dd-banner {
+  position: sticky; top: 0; z-index: 999;
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 14px;
+  padding: 9px 16px; background: #16140f; color: #f6f1e7;
+  font: 600 13px/1.3 "Manrope", system-ui, sans-serif; text-align: center;
+}
+.dd-banner b { color: #e8772e; font-weight: 800; }
+.dd-banner a { padding: 4px 12px; border-radius: 99px; background: #e8772e; color: #fff; white-space: nowrap; }
+.dd-banner a:hover { background: #f6f1e7; color: #16140f; }
+
+.wrap { width: min(1200px, 100% - 40px); margin-inline: auto; }
+
+/* Photo placeholders — swap for real photography of the business */
+.ph { position: relative; overflow: hidden; border-radius: inherit; }
+.ph::after { content: attr(data-label); position: absolute; left: 12px; bottom: 10px; font: 500 10px/1 "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 120%); padding: 14px 20px; border-radius: 12px; background: #16140f; color: #f6f1e7; font: 600 14px/1.4 "Manrope", sans-serif; z-index: 1000; transition: transform .4s cubic-bezier(.22,1,.36,1); max-width: calc(100% - 32px); }
+.toast.show { transform: translate(-50%, 0); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+.in-frame .dd-banner { display: none; }
+.in-frame .reveal { opacity: 1; transform: none; }
+.in-frame body { overflow: hidden; }

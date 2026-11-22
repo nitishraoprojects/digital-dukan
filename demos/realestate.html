@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keystone Homes — Real Estate Concept | Digital Dukan</title>
+<meta name="description" content="Concept demo by Digital Dukan: a real estate agency website with filterable listings, EMI calculator and site visit booking.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+  :root { --slate:#14213d; --terra:#e07a3f; --stone:#f3f1ec; --line:#e2ddd2; --muted:#6c6a63; }
+  body { font-family: "Inter", sans-serif; background: var(--stone); color: var(--slate); }
+  .sg { font-family: "Space Grotesk", sans-serif; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .logo { font-family: "Space Grotesk"; font-weight: 700; font-size: 22px; display: flex; gap: 10px; align-items: center; }
+  .logo i { width: 26px; height: 26px; background: var(--terra); clip-path: polygon(50% 0, 100% 45%, 100% 100%, 0 100%, 0 45%); }
+  .nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: 14px; }
+  .btn { display: inline-flex; padding: 13px 22px; border-radius: 10px; background: var(--slate); color: #fff; font-weight: 700; font-size: 14px; border: 0; cursor: pointer; }
+  .btn:hover { background: var(--terra); }
+  .hero { padding: 50px 0 80px; }
+  .hero h1 { font-family: "Space Grotesk"; font-weight: 600; font-size: clamp(44px, 6.6vw, 92px); line-height: .98; letter-spacing: -.04em; max-width: 900px; }
+  .hero h1 span { color: var(--terra); }
+  .finder { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr) auto; background: #fff; border-radius: 16px; padding: 8px; box-shadow: 0 30px 60px -35px rgba(20,33,61,.4); gap: 8px; }
+  .finder label { padding: 10px 16px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-right: 1px solid var(--line); }
+  .finder select { display: block; width: 100%; margin-top: 4px; border: 0; font-size: 16px; font-weight: 600; color: var(--slate); background: transparent; letter-spacing: 0; text-transform: none; }
+  .finder .btn { padding: 0 28px; align-items: center; justify-content: center; }
+  .count { margin: 50px 0 20px; font-weight: 600; color: var(--muted); }
+  .list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .home { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); transition: transform .4s, box-shadow .4s; }
+  .home:hover { transform: translateY(-5px); box-shadow: 0 30px 50px -30px rgba(20,33,61,.4); }
+  .home.hide { display: none; }
+  .home .ph { height: 210px; }
+  .h1c { background: linear-gradient(135deg, #cdb79a, #7f6a50); } .h2c { background: linear-gradient(135deg, #a7b5c4, #4b5d73); } .h3c { background: linear-gradient(135deg, #d9a27e, #8e5638); }
+  .home-b { padding: 20px; }
+  .home .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: var(--stone); margin-bottom: 10px; }
+  .home h3 { font-family: "Space Grotesk"; font-size: 21px; font-weight: 600; }
+  .home p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .home .meta { display: flex; gap: 14px; font-size: 13px; color: var(--muted); margin: 14px 0; padding: 12px 0; border-block: 1px solid var(--line); }
+  .home .foot { display: flex; justify-content: space-between; align-items: center; }
+  .home .foot b { font-family: "Space Grotesk"; font-size: 22px; }
+  .home .foot a { color: var(--terra); font-weight: 700; font-size: 14px; }
+  section { padding: 90px 0; }
+  .eyebrow { font-family: "JetBrains Mono"; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--terra); }
+  h2 { font-family: "Space Grotesk"; font-weight: 600; font-size: clamp(36px, 4.6vw, 58px); letter-spacing: -.03em; line-height: 1.02; margin-top: 10px; }
+  .emi { background: var(--slate); color: #fff; }
+  .emi .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .emi p.s { color: rgba(255,255,255,.7); margin-top: 16px; line-height: 1.7; }
+  .calc { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 30px; }
+  .calc label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 22px; }
+  .calc label span { float: right; font-family: "Space Grotesk"; font-size: 16px; }
+  .calc input[type=range] { width: 100%; margin-top: 12px; accent-color: var(--terra); }
+  .result { border-top: 1px solid rgba(255,255,255,.15); padding-top: 22px; display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 14px; }
+  .result b { display: block; font-family: "Space Grotesk"; font-size: 44px; color: var(--terra); line-height: 1; }
+  .result small { color: rgba(255,255,255,.6); }
+  .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .vform { background: #fff; border-radius: 20px; padding: 30px; display: grid; gap: 12px; border: 1px solid var(--line); }
+  .vform input, .vform select { padding: 14px; border-radius: 10px; border: 1.5px solid var(--line); }
+  footer { padding: 40px 0; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
+  @media (max-width: 900px) {
+    .nav ul { display: none; }
+    .finder { grid-template-columns: 1fr; } .finder label { border-right: 0; border-bottom: 1px solid var(--line); } .finder .btn { padding: 15px; justify-content: center; }
+    .list, .emi .wrap, .visit { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="dd-banner"><span><b>Concept demo</b> by Digital Dukan — a fictional business, not a client project.</span><a href="../index.html#contact">Get a website like this</a></div>
+
+<header class="wrap nav">
+  <div class="logo"><i aria-hidden="true"></i>Keystone Homes</div>
+  <nav aria-label="Main"><ul><li><a href="#listings">Listings</a></li><li><a href="#emi">EMI calculator</a></li><li><a href="#visit">Site visit</a></li></ul></nav>
+  <a class="btn" href="#visit">Schedule a visit</a>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="h1">
+    <p class="eyebrow">Verified homes · Transparent pricing</p>
+    <h1 id="h1">Find a home that <span>fits</span> your life — and your budget.</h1>
+    <form class="finder" id="finder" aria-label="Filter properties">
+      <label>Configuration<select id="fBhk"><option value="all">Any</option><option value="1">1 BHK</option><option value="2">2 BHK</option><option value="3">3 BHK</option><option value="4">4 BHK / Villa</option></select></label>
+      <label>Budget<select id="fBudget"><option value="999">Any budget</option><option value="50">Under ₹50 L</option><option value="90">Under ₹90 L</option><option value="150">Under ₹1.5 Cr</option></select></label>
+      <label>Status<select id="fStatus"><option value="all">Any</option><option value="ready">Ready to move</option><option value="uc">Under construction</option></select></label>
+      <button class="btn" type="submit">Search</button>
+    </form>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="list" id="listings">
+      <article class="home" data-bhk="2" data-price="62" data-status="ready"><div class="ph h1c" data-label="Property photo"></div><div class="home-b"><span class="tag">Ready to move</span><h3>Maple Residency</h3><p>Sector 12, near metro</p><div class="meta"><span>2 BHK</span><span>1,080 sq ft</span><span>East facing</span></div><div class="foot"><b>₹62 L</b><a href="#visit">Book visit →</a></div></div></article>
+      <article class="home" data-bhk="3" data-price="118" data-status="uc"><div class="ph h2c" data-label="Property photo"></div><div class="home-b"><span class="tag">Possession 2027</span><h3>Skyline Heights</h3><p>Ring Road, 14th floor</p><div class="meta"><span>3 BHK</span><span>1,640 sq ft</span><span>Club house</span></div><div class="foot"><b>₹1.18 Cr</b><a href="#visit">Book visit →</a></div></div></article>
+      <article class="home" data-bhk="1" data-price="34" data-status="ready"><div class="ph h3c" data-label="Property photo"></div><div class="home-b"><span class="tag">Ready to move</span><h3>Nest Studios</h3><p>IT Park road</p><div class="meta"><span>1 BHK</span><span>620 sq ft</span><span>Furnished</span></div><div class="foot"><b>₹34 L</b><a href="#visit">Book visit →</a></div></div></article>
+      <article class="home" data-bhk="4" data-price="240" data-status="ready"><div class="ph h1c" data-label="Property photo"></div><div class="home-b"><span class="tag">Ready to move</span><h3>Orchard Villas</h3><p>Gated community, outskirts</p><div class="meta"><span>4 BHK Villa</span><span>3,200 sq ft</span><span>Garden</span></div><div class="foot"><b>₹2.4 Cr</b><a href="#visit">Book visit →</a></div></div></article>
+      <article class="home" data-bhk="2" data-price="48" data-status="uc"><div class="ph h2c" data-label="Property photo"></div><div class="home-b"><span class="tag">Possession 2026</span><h3>Greenfield Towers</h3><p>New town, near school</p><div class="meta"><span>2 BHK</span><span>940 sq ft</span><span>Park view</span></div><div class="foot"><b>₹48 L</b><a href="#visit">Book visit →</a></div></div></article>
+      <article class="home" data-bhk="3" data-price="86" data-status="ready"><div class="ph h3c" data-label="Property photo"></div><div class="home-b"><span class="tag">Ready to move</span><h3>Lakeview Enclave</h3><p>Lake road, corner unit</p><div class="meta"><span>3 BHK</span><span>1,420 sq ft</span><span>2 parking</span></div><div class="foot"><b>₹86 L</b><a href="#visit">Book visit →</a></div></div></article>
+    </div>
+  </section>
+
+  <section class="emi" id="emi" aria-labelledby="emi-h">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Plan your purchase</p>
+        <h2 id="emi-h">What will my EMI be?</h2>
+        <p class="s">Move the sliders to estimate your monthly payment. Our team can connect you with home-loan partners for exact rates.</p>
+      </div>
+      <div class="calc">
+        <label>Loan amount <span id="vAmt"></span><input type="range" id="amt" min="500000" max="20000000" step="100000" value="5000000"></label>
+        <label>Interest rate (p.a.) <span id="vRate"></span><input type="range" id="rate" min="6" max="14" step="0.05" value="8.5"></label>
+        <label>Tenure <span id="vYrs"></span><input type="range" id="yrs" min="5" max="30" step="1" value="20"></label>
+        <div class="result" aria-live="polite"><div><small>Estimated monthly EMI</small><b id="emiOut">—</b></div><small id="emiTotal"></small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" aria-labelledby="visit-h">
+    <div class="wrap visit">
+      <div class="reveal"><p class="eyebrow">Site visit</p><h2 id="visit-h">See it before you decide.</h2><p style="color:var(--muted);margin-top:16px;line-height:1.7">Pick a property and a time — we'll arrange the visit and pick-up if you need it.</p></div>
+      <form class="vform reveal" data-demo="Concept demo — on a live site this visit request goes to the agency's sales team instantly.">
+        <input required placeholder="Your name" aria-label="Your name">
+        <input type="tel" required pattern="[0-9+ ]{10,14}" placeholder="Phone number" aria-label="Phone number">
+        <select aria-label="Property"><option>Maple Residency</option><option>Skyline Heights</option><option>Nest Studios</option><option>Orchard Villas</option><option>Greenfield Towers</option><option>Lakeview Enclave</option></select>
+        <input type="date" required aria-label="Preferred date">
+        <button class="btn" type="submit" style="justify-content:center">Schedule my visit</button>
+      </form>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Keystone Homes — a concept by Digital Dukan · Listings shown are fictional.</div></footer>
+<script src="demo.js"></script>
+<script>
+  (function () {
+    // Listing filter
+    const f = document.getElementById("finder"), homes = document.querySelectorAll(".home"), count = document.getElementById("count");
+    const run = () => {
+      const bhk = f.fBhk.value, max = +f.fBudget.value, st = f.fStatus.value;
+      let n = 0;
+      homes.forEach((h) => {
+        const ok = (bhk === "all" || h.dataset.bhk === bhk) && +h.dataset.price <= max && (st === "all" || h.dataset.status === st);
+        h.classList.toggle("hide", !ok); if (ok) n++;
+      });
+      count.textContent = n ? `${n} home${n > 1 ? "s" : ""} match your search` : "No exact matches — tell us what you need and we'll find it.";
+    };
+    f.addEventListener("submit", (e) => { e.preventDefault(); run(); });
+    f.querySelectorAll("select").forEach((s) => s.addEventListener("change", run));
+    run();
+
+    // EMI calculator
+    const amt = document.getElementById("amt"), rate = document.getElementById("rate"), yrs = document.getElementById("yrs");
+    const inr = (v) => "₹" + Math.round(v).toLocaleString("en-IN");
+    const lakh = (v) => v >= 1e7 ? `₹${(v / 1e7).toFixed(2)} Cr` : `₹${(v / 1e5).toFixed(1)} L`;
+    const calc = () => {
+      const P = +amt.value, r = +rate.value / 1200, n = +yrs.value * 12;
+      const emi = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+      document.getElementById("vAmt").textContent = lakh(P);
+      document.getElementById("vRate").textContent = (+rate.value).toFixed(2) + "%";
+      document.getElementById("vYrs").textContent = yrs.value + " yrs";
+      document.getElementById("emiOut").textContent = inr(emi);
+      document.getElementById("emiTotal").textContent = `Total interest: ${lakh(emi * n - P)}`;
+    };
+    [amt, rate, yrs].forEach((i) => i.addEventListener("input", calc));
+    calc();
+  })();
+</script>
+</body>
+</html>
