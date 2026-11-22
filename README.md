@@ -45,3 +45,15 @@ Upload the folder to any static host: Netlify (drag & drop), Vercel, GitHub Page
 - Showcase projects are labelled **Concept** everywhere, and each demo page carries a "concept demo" banner.
 - There are no testimonials, client logos, years of experience or client counts. The "Our Promise" section stands in until you have real client stories. Replace it with genuine feedback once you have it.
 - Demo photography slots are styled placeholders labelled "photography". Use real photos for client work.
+
+## The Digital City (`world.html`)
+
+A cinematic, scroll-driven 3D experience: a portal intro → flight into the city → five districts where storefront doors open and the business's website emerges into the street → the Digital Dukan tower finale with pricing and the lead form.
+
+- **Stack:** Three.js r160 (ES modules via import map) + GSAP 3.12 ScrollTrigger. No framework, no build step, no downloaded 3D assets — the city, people, vehicles and screens are all generated in code.
+- **Files:** `assets/js/world/` — `main.js` (renderer, camera path, time of day, holograms), `city.js` (districts, buildings, vehicles, tower), `people.js` (tiny animated characters), `effects.js` (sky, particles, fountain), `textures.js` (neon signs, animated website billboards), `audio.js` (synthesised sound, off by default), `form.js` (lead form — same config as the classic site).
+- **Website holograms** are real HTML inside the scene (CSS3D) so they stay sharp, readable and clickable. On phones they appear as 2D overlays with a compact layout.
+- **Performance:** instanced buildings/lamps/trees/cars, one shared material for all people, distance culling, bloom + shadows on desktop only, automatic quality drop if the frame rate falls.
+- **Accessibility:** "Skip Experience" everywhere, keyboard-reachable district jumps, `prefers-reduced-motion` support, and a fallback screen that sends visitors to the classic site if WebGL isn't available.
+- **Deep link:** `world.html#city` skips the intro and flies straight in.
+- Needs to be served over http(s) (GitHub Pages is fine) — ES modules don't load from `file://`.

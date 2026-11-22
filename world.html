@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Digital Dukan — Enter the Digital City</title>
+  <meta name="description" content="Step into the Digital Dukan city — an interactive cinematic journey where every business has its own website. Restaurants, hotels, clinics, jewellers and local shops, brought to life.">
+  <meta name="theme-color" content="#0a1033">
+  <link rel="canonical" href="https://nitishraoprojects.github.io/digital-dukan/world.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Digital Dukan — The City of Digital Possibilities">
+  <meta property="og:description" content="A city where every business has a digital identity. Discover what your business could become.">
+  <meta property="og:url" content="https://nitishraoprojects.github.io/digital-dukan/world.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/world.css">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body class="locked">
+  <a class="skip-link" href="index.html">Skip the 3D experience and go to the classic website</a>
+
+  <!-- ================= LOADER ================= -->
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader-inner">
+      <svg class="loader-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#F6F1E7"/><path d="M12 22h40v6a6.67 6.67 0 0 1-13.33 0 6.67 6.67 0 0 1-13.34 0A6.67 6.67 0 0 1 12 28z" fill="#E8772E"/><path d="M16 36v14h32V36" fill="none" stroke="#16140F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="27" y="40" width="10" height="10" rx="2" fill="#16140F"/></svg>
+      <p class="loader-text" id="loaderText">Building the city…</p>
+      <div class="loader-bar"><span id="loaderBar"></span></div>
+      <a class="loader-skip" href="index.html">Prefer the classic website?</a>
+    </div>
+  </div>
+
+  <!-- ================= 3D STAGE ================= -->
+  <div class="stage" id="stage" aria-hidden="true"></div>
+  <div class="css3d" id="css3d"></div>
+  <div class="holo2d" id="holo2d"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
+
+  <!-- ================= NAV ================= -->
+  <header class="w-nav" id="wNav">
+    <a class="w-brand" href="index.html" aria-label="Digital Dukan — classic website home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#F6F1E7"/><path d="M12 22h40v6a6.67 6.67 0 0 1-13.33 0 6.67 6.67 0 0 1-13.34 0A6.67 6.67 0 0 1 12 28z" fill="#E8772E"/><path d="M16 36v14h32V36" fill="none" stroke="#16140F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><rect x="27" y="40" width="10" height="10" rx="2" fill="#16140F"/></svg>
+      <span>Digital<em>Dukan</em></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="w-links">
+        <li><a href="index.html">Home</a></li>
+        <li><button type="button" data-action="explore">Explore the City</button></li>
+        <li><a href="index.html#services">Our Services</a></li>
+        <li><button type="button" data-action="pricing">Pricing</button></li>
+        <li><button type="button" data-action="contact">Contact</button></li>
+      </ul>
+    </nav>
+    <div class="w-tools">
+      <button type="button" class="w-sound" id="soundBtn" aria-pressed="false" aria-label="Sound off. Turn sound on">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="lbl">Sound</span>
+      </button>
+      <a class="w-skip" href="index.html">Skip Experience <span aria-hidden="true">→</span></a>
+      <button type="button" class="w-menu" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="w-mobile" id="mobileNav" hidden>
+    <a href="index.html">Home</a>
+    <button type="button" data-action="explore">Explore the City</button>
+    <a href="index.html#services">Our Services</a>
+    <button type="button" data-action="pricing">Pricing</button>
+    <button type="button" data-action="contact">Contact</button>
+    <a href="index.html" class="w-skip-m">Skip Experience →</a>
+  </div>
+
+  <!-- ================= INTRO ================= -->
+  <section class="intro" id="intro" aria-labelledby="introTitle">
+    <canvas class="portal-fx" id="portalFx" aria-hidden="true"></canvas>
+    <div class="intro-inner">
+      <p class="intro-kicker"><span class="pulse"></span> Digital Dukan presents</p>
+      <h1 class="intro-title" id="introTitle">
+        <span class="ln"><span>The Future of</span></span>
+        <span class="ln"><span>Your Business</span></span>
+        <span class="ln"><span><em>Starts Here.</em></span></span>
+      </h1>
+      <p class="intro-sub">A city where every business has a digital identity. Discover what your business could become.</p>
+      <p class="intro-what">We design and build websites for restaurants, hotels, clinics, jewellers and local shops — from ₹2,000.</p>
+      <button type="button" class="portal-btn" id="enterBtn">
+        <span class="pb-ring" aria-hidden="true"></span>
+        <span class="pb-ring r2" aria-hidden="true"></span>
+        <span class="pb-core">
+          <span class="pb-bracket" aria-hidden="true">[</span>
+          <span class="pb-label">Enter the Digital World</span>
+          <span class="pb-arrow" aria-hidden="true">→</span>
+          <span class="pb-bracket" aria-hidden="true">]</span>
+        </span>
+      </button>
+      <div class="intro-alt">
+        <a href="index.html">View the classic website</a>
+        <span aria-hidden="true">·</span>
+        <button type="button" data-action="contact">Talk to us directly</button>
+      </div>
+    </div>
+    <p class="intro-hint">Best with sound on <span aria-hidden="true">·</span> Scroll drives the camera</p>
+  </section>
+
+  <!-- ================= JOURNEY HUD ================= -->
+  <div class="hud" id="hud" aria-hidden="true">
+    <ol class="hud-track" id="hudTrack">
+      <li data-jump="restaurant"><span>Restaurant Street</span></li>
+      <li data-jump="hotel"><span>Hotel Avenue</span></li>
+      <li data-jump="health"><span>Healthcare District</span></li>
+      <li data-jump="jewel"><span>Jewellery Street</span></li>
+      <li data-jump="local"><span>Main Street</span></li>
+      <li data-jump="tower"><span>Your Tower</span></li>
+    </ol>
+    <div class="hud-progress"><span id="hudBar"></span></div>
+  </div>
+  <div class="scroll-hint" id="scrollHint" aria-hidden="true"><span class="mouse"><i></i></span>Scroll to explore the city</div>
+
+  <!-- Accessible journey navigation for keyboard / screen readers -->
+  <nav class="sr-only" aria-label="Jump to district">
+    <button type="button" data-jump="restaurant">Restaurant Street</button>
+    <button type="button" data-jump="hotel">Luxury Hotel Avenue</button>
+    <button type="button" data-jump="health">Healthcare District</button>
+    <button type="button" data-jump="jewel">Jewellery Street</button>
+    <button type="button" data-jump="local">Main Street local businesses</button>
+    <button type="button" data-jump="tower">Finale</button>
+  </nav>
+
+  <!-- ================= CHAPTER TITLES (shown while travelling) ================= -->
+  <div class="titles" aria-live="polite">
+    <div class="ch-title" data-title="restaurant"><p>District 01</p><h2>Restaurant Street</h2><span>Where every table starts with a search.</span></div>
+    <div class="ch-title" data-title="hotel"><p>District 02</p><h2>Luxury Hotel Avenue</h2><span>Guests choose with their eyes first.</span></div>
+    <div class="ch-title" data-title="health"><p>District 03</p><h2>Healthcare District</h2><span>Trust, clarity and care — before the first visit.</span></div>
+    <div class="ch-title" data-title="jewel"><p>District 04</p><h2>Jewellery Street</h2><span>Craftsmanship deserves a stage.</span></div>
+    <div class="ch-title" data-title="local"><p>District 05</p><h2>Main Street</h2><span>Digital identity isn't only for big companies.</span></div>
+    <div class="ch-title" data-title="tower"><p>The Centre</p><h2>The Digital Dukan Tower</h2><span>Every business deserves its own place in the digital world.</span></div>
+  </div>
+
+  <!-- ================= CHAPTER CARDS (shown at each website) ================= -->
+  <div class="cards">
+    <aside class="ch-card" data-card="restaurant">
+      <p class="cc-k">Restaurant Street · Concept</p>
+      <h3>Imagine your restaurant looking like this.</h3>
+      <p>Menus that make people hungry. Reservations that land in your WhatsApp. Directions one tap away.</p>
+      <button type="button" class="cc-cta" data-form="Restaurant / Café / Cloud Kitchen">Build My Restaurant Website <span aria-hidden="true">→</span></button>
+    </aside>
+    <aside class="ch-card" data-card="hotel">
+      <p class="cc-k">Hotel Avenue · Concept</p>
+      <h3>Guests book directly when your website sells the stay.</h3>
+      <p>Room showcases, galleries and a booking enquiry flow — without the portal commission.</p>
+      <button type="button" class="cc-cta" data-form="Hotel / Resort">Give Your Hotel a Digital Identity <span aria-hidden="true">→</span></button>
+    </aside>
+    <aside class="ch-card" data-card="health">
+      <p class="cc-k">Healthcare District · Concept</p>
+      <h3>Make it easy for patients to find you, trust you and reach you.</h3>
+      <p>Department directories, specialist profiles and appointment requests that work on any phone.</p>
+      <button type="button" class="cc-cta" data-form="Hospital / Clinic / Healthcare">Build Your Healthcare Website <span aria-hidden="true">→</span></button>
+    </aside>
+    <aside class="ch-card" data-card="jewel">
+      <p class="cc-k">Jewellery Street · Concept</p>
+      <h3>Let your collection shine online.</h3>
+      <p>A luxurious catalogue, WhatsApp enquiries on every piece and private showroom bookings.</p>
+      <button type="button" class="cc-cta" data-form="Jewellery Store">Make Your Brand Shine Online <span aria-hidden="true">→</span></button>
+    </aside>
+    <aside class="ch-card" data-card="local">
+      <p class="cc-k">Main Street · Concept</p>
+      <h3>Your shop deserves a premium digital presence too.</h3>
+      <p>Grocers, salons, boutiques and electronics stores — each with a website that brings customers to the counter. From ₹2,000.</p>
+      <button type="button" class="cc-cta" data-form="Retail / Local Shop">Take Your Business Digital <span aria-hidden="true">→</span></button>
+    </aside>
+  </div>
+
+  <!-- ================= WEBSITE HOLOGRAMS =================
+       Real HTML. On desktop they are placed in 3D (CSS3D) and emerge from buildings.
+       On mobile they float as 2D overlays. -->
+  <div class="panel-bank" id="panelBank">
+
+    <!-- RESTAURANT -->
+    <article class="holo" id="holo-restaurant" data-holo="restaurant" aria-label="Restaurant website concept: Tandoor and Tales">
+      <div class="holo-chrome"><i></i><i></i><i></i><span>tandoorandtales.in</span><b>Concept demo</b></div>
+      <div class="site site-resto">
+        <header><strong>Tandoor <em>&amp; Tales</em></strong><nav><span>Menu</span><span>Story</span><span>Visit</span></nav><a class="r-btn" href="demos/restaurant.html" target="_blank" rel="noopener">Book a table</a></header>
+        <div class="r-main">
+          <div class="r-hero">
+            <p class="r-k">North Indian · Open fire kitchen</p>
+            <h3>Every dish<br>has a <em>story.</em></h3>
+            <p>Recipes carried from Amritsar's lanes, slow-cooked over charcoal and served to share.</p>
+            <div class="r-hours"><span><b>Lunch</b>12 – 3:30</span><span><b>Dinner</b>7 – 11:30</span><span><b>Rating</b>Your reviews here</span></div>
+          </div>
+          <div class="r-menu">
+            <div class="r-tabs" role="tablist" aria-label="Menu categories">
+              <button role="tab" aria-selected="true" data-rtab="starters">Starters</button>
+              <button role="tab" aria-selected="false" data-rtab="mains">Mains</button>
+              <button role="tab" aria-selected="false" data-rtab="sweet">Desserts</button>
+            </div>
+            <ul data-rlist="starters"><li><i class="v"></i><b>Smoked Paneer Tikka</b><span>₹340</span></li><li><i></i><b>Amritsari Fish</b><span>₹420</span></li><li><i class="v"></i><b>Tandoori Mushroom</b><span>₹310</span></li></ul>
+            <ul data-rlist="mains" hidden><li><i></i><b>Butter Chicken</b><span>₹460</span></li><li><i class="v"></i><b>Dal Makhani</b><span>₹290</span></li><li><i></i><b>Rara Gosht</b><span>₹540</span></li></ul>
+            <ul data-rlist="sweet" hidden><li><i class="v"></i><b>Kesar Phirni</b><span>₹160</span></li><li><i class="v"></i><b>Gulab Jamun</b><span>₹150</span></li><li><i class="v"></i><b>Kulfi Falooda</b><span>₹190</span></li></ul>
+            <div class="r-reserve"><span>Tonight · 2 guests · 8:30 pm</span><button type="button" data-toast="Reservation sent to the restaurant's WhatsApp (concept demo).">Reserve</button></div>
+          </div>
+        </div>
+      </div>
+      <footer class="holo-foot"><span>This is the kind of website we build for restaurants.</span><a href="demos/restaurant.html" target="_blank" rel="noopener">Open full demo ↗</a><button type="button" data-form="Restaurant / Café / Cloud Kitchen">Build My Restaurant Website →</button></footer>
+    </article>
+
+    <!-- HOTEL -->
+    <article class="holo" id="holo-hotel" data-holo="hotel" aria-label="Hotel website concept: The Aranya Retreat">
+      <div class="holo-chrome"><i></i><i></i><i></i><span>aranya-retreat.in</span><b>Concept demo</b></div>
+      <div class="site site-hotel">
+        <header><strong>ARANYA<small>RETREAT</small></strong><nav><span>Stay</span><span>Experiences</span><span>Gallery</span></nav><a href="demos/hotel.html" target="_blank" rel="noopener">Reserve</a></header>
+        <div class="h-hero">
+          <h3>Stay where the <em>forest</em> breathes.</h3>
+          <div class="h-book">
+            <label>Check-in<span>Fri, 12 Dec</span></label><label>Check-out<span>Sun, 14 Dec</span></label><label>Guests<span>2 Adults</span></label>
+            <button type="button" data-toast="Availability request sent to the reservations desk (concept demo).">Check availability</button>
+          </div>
+        </div>
+        <div class="h-rooms">
+          <div class="h-room r1"><div class="h-img"></div><b>Canopy Villa</b><span>Forest deck · King bed</span><em>from ₹14,500</em></div>
+          <div class="h-room r2"><div class="h-img"></div><b>Valley Pool Villa</b><span>Private plunge pool</span><em>from ₹22,000</em></div>
+          <div class="h-room r3"><div class="h-img"></div><b>Family Treehouse</b><span>Sleeps 5 · 2 bedrooms</span><em>from ₹18,000</em></div>
+        </div>
+        <p class="h-direct">✦ Book direct for our best rate · Talk to a real person · Complimentary early check-in*</p>
+      </div>
+      <footer class="holo-foot"><span>Built to turn browsers into direct bookings.</span><a href="demos/hotel.html" target="_blank" rel="noopener">Open full demo ↗</a><button type="button" data-form="Hotel / Resort">Give Your Hotel a Digital Identity →</button></footer>
+    </article>
+
+    <!-- HEALTHCARE -->
+    <article class="holo" id="holo-health" data-holo="health" aria-label="Hospital website concept: CarePoint Clinic">
+      <div class="holo-chrome"><i></i><i></i><i></i><span>carepointclinic.in</span><b>Concept demo</b></div>
+      <div class="site site-health">
+        <div class="c-top"><span>OPD Mon–Sat 9 am – 8 pm</span><span class="em">24×7 Emergency</span></div>
+        <header><strong><i></i>CarePoint</strong><nav><span>Departments</span><span>Doctors</span><span>Reports</span></nav><a href="demos/clinic.html" target="_blank" rel="noopener">Book appointment</a></header>
+        <div class="c-grid">
+          <div class="c-hero">
+            <h3>Care that's <span>close to home</span> — and easy to reach.</h3>
+            <div class="c-search">Search “fever”, “knee pain”, “skin”…</div>
+            <div class="c-depts"><span>General Medicine</span><span>Paediatrics</span><span>Orthopaedics</span><span>Cardiology</span><span>Dermatology</span><span>Dental</span></div>
+          </div>
+          <div class="c-docs">
+            <div class="c-doc"><i>GP</i><div><b>General Physician</b><span>Available today</span></div></div>
+            <div class="c-doc"><i>PD</i><div><b>Paediatrician</b><span>Available today</span></div></div>
+            <div class="c-slots" role="group" aria-label="Appointment times">
+              <p>Pick a time — today</p>
+              <button type="button">10:30</button><button type="button">11:15</button><button type="button" disabled>12:00</button><button type="button">4:30</button><button type="button">5:15</button><button type="button">6:00</button>
+              <button type="button" class="c-confirm" data-toast="Appointment request sent to the front desk (concept demo).">Request appointment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="holo-foot"><span>Clear, trustworthy and fast on every phone.</span><a href="demos/clinic.html" target="_blank" rel="noopener">Open full demo ↗</a><button type="button" data-form="Hospital / Clinic / Healthcare">Build Your Healthcare Website →</button></footer>
+    </article>
+
+    <!-- JEWELLERY -->
+    <article class="holo" id="holo-jewel" data-holo="jewel" aria-label="Jewellery e-commerce website concept: Swarnika">
+      <div class="holo-chrome"><i></i><i></i><i></i><span>swarnika.in</span><b>Concept demo</b></div>
+      <div class="site site-jewel">
+        <header><nav><span>Bridal</span><span>Daily wear</span><span>Gifting</span></nav><strong>SWARNIKA</strong><span class="j-bag">Bag (<b id="jBag">0</b>)</span></header>
+        <div class="j-hero">
+          <div><p>The Bridal Edit</p><h3>Crafted for the moments that <em>last.</em></h3><a href="demos/jewellery.html" target="_blank" rel="noopener">Explore collection</a></div>
+          <div class="j-ring" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="j-grid">
+          <div class="j-p"><div class="j-img"><span class="g neck"></span></div><b>Rani Haar</b><small>22K · Kundan</small><button type="button" data-bag>Add to bag</button></div>
+          <div class="j-p"><div class="j-img"><span class="g ring"></span></div><b>Solitaire Band</b><small>18K · Diamond</small><button type="button" data-bag>Add to bag</button></div>
+          <div class="j-p"><div class="j-img"><span class="g ear"></span></div><b>Pearl Drops</b><small>18K · Pearl</small><button type="button" data-bag>Add to bag</button></div>
+          <div class="j-p"><div class="j-img"><span class="g bang"></span></div><b>Temple Kada</b><small>22K · Antique</small><button type="button" data-bag>Add to bag</button></div>
+        </div>
+      </div>
+      <footer class="holo-foot"><span>Luxury e-commerce, white and gold.</span><a href="demos/jewellery.html" target="_blank" rel="noopener">Open full demo ↗</a><button type="button" data-form="Jewellery Store">Make Your Brand Shine Online →</button></footer>
+    </article>
+
+    <!-- LOCAL -->
+    <article class="holo" id="holo-local" data-holo="local" aria-label="Local business website concepts">
+      <div class="holo-chrome"><i></i><i></i><i></i><span>Main Street · four shops, four identities</span><b>Concept demos</b></div>
+      <div class="site site-local">
+        <div class="l-tile l-grocery"><div class="l-bar">haatandco.in</div><div class="l-body"><b>Haat &amp; Co.</b><p>Your neighbourhood store, now online.</p><div class="l-chips"><span>Fresh</span><span>Staples</span><span>Dairy</span></div><a href="demos/retail.html" target="_blank" rel="noopener">Order on WhatsApp</a></div></div>
+        <div class="l-tile l-salon"><div class="l-bar">nursalon.in</div><div class="l-body"><b>Nūr Salon</b><p>Slow down. Glow up.</p><div class="l-chips"><span>Hair ₹650</span><span>Facial ₹1,500</span></div><a href="demos/salon.html" target="_blank" rel="noopener">Book a slot</a></div></div>
+        <div class="l-tile l-cloth"><div class="l-bar">threadstory.in</div><div class="l-body"><b>Thread Story</b><p>Handloom, made in our town.</p><div class="l-chips"><span>New arrivals</span><span>Festive</span></div><a href="#" data-toast="Concept tile — we'd design a full boutique site like this for you.">Shop the edit</a></div></div>
+        <div class="l-tile l-elec"><div class="l-bar">voltcorner.in</div><div class="l-body"><b>Volt Corner</b><p>Phones, repairs &amp; accessories.</p><div class="l-chips"><span>Repair in 1 hr</span><span>EMI</span></div><a href="#" data-toast="Concept tile — we'd design a full electronics store site like this for you.">Get a quote</a></div></div>
+      </div>
+      <footer class="holo-foot"><span>Websites start at ₹2,000 — even for the smallest shop.</span><a href="index.html#pricing">See pricing ↗</a><button type="button" data-form="Retail / Local Shop">Take Your Business Digital →</button></footer>
+    </article>
+  </div>
+
+  <!-- ================= FINALE ================= -->
+  <section class="finale" id="finale" aria-labelledby="finaleTitle">
+    <p class="fin-k">The Digital Dukan Tower</p>
+    <h2 id="finaleTitle">Your business is the <em>next big thing</em> in this city.</h2>
+    <p class="fin-sub">Your competitors are building their digital presence. It's time your business had one too.</p>
+    <div class="fin-ctas">
+      <button type="button" class="fin-btn primary" data-action="contact">Build My Website <span aria-hidden="true">→</span></button>
+      <button type="button" class="fin-btn" data-action="pricing">Explore Pricing</button>
+      <a class="fin-btn" href="#" data-booking target="_blank" rel="noopener">Book a Free Consultation</a>
+    </div>
+    <p class="fin-note">Showcased businesses are fictional concept demos by Digital Dukan.</p>
+  </section>
+
+  <!-- ================= PRICING MODAL ================= -->
+  <div class="modal" id="pricingModal" role="dialog" aria-modal="true" aria-labelledby="pricingTitle" hidden>
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-box pricing-box">
+      <button type="button" class="modal-x" data-close aria-label="Close pricing">×</button>
+      <p class="m-k">Pricing</p>
+      <h2 id="pricingTitle">Premium websites. <em>Honest prices.</em></h2>
+      <div class="plans">
+        <div class="plan"><h3>Starter</h3><p class="pr"><small>Starting at</small>₹2,000</p><ul><li>Single-page business website</li><li>Mobile-responsive design</li><li>Contact details &amp; WhatsApp</li><li>Basic SEO setup</li></ul><button type="button" data-form-budget="₹2,000 – ₹5,000">Get a Free Quote</button></div>
+        <div class="plan hot"><span class="tag">Most chosen fit</span><h3>Business</h3><p class="pr"><small>Starting at</small>₹4,999</p><ul><li>Multi-section or multi-page site</li><li>Custom visual design</li><li>Services &amp; product showcase</li><li>Contact form, WhatsApp &amp; Maps</li><li>SEO-friendly structure</li></ul><button type="button" data-form-budget="₹5,000 – ₹10,000">Get a Free Quote</button></div>
+        <div class="plan"><h3>Premium</h3><p class="pr"><small>Starting at</small>₹9,999</p><ul><li>Custom website experience</li><li>Advanced animations &amp; UI/UX</li><li>Lead generation forms</li><li>Performance optimisation</li><li>Business-specific features</li></ul><button type="button" data-form-budget="₹10,000 – ₹25,000">Get a Free Quote</button></div>
+      </div>
+      <p class="m-note">Starting prices, not fixed-scope packages — your final quote depends on features, content and complexity. Domain, hosting, premium third-party services and ongoing maintenance may be charged separately.</p>
+    </div>
+  </div>
+
+  <!-- ================= LEAD FORM MODAL ================= -->
+  <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle" hidden>
+    <div class="modal-scrim" data-close></div>
+    <div class="modal-box form-box">
+      <button type="button" class="modal-x" data-close aria-label="Close form">×</button>
+      <form id="worldForm" novalidate>
+        <div class="wf-inner">
+          <p class="m-k">Claim your place in the city</p>
+          <h2 id="formTitle">Let's build something great <em>for your business.</em></h2>
+          <div class="wf-grid">
+            <label class="wf">Your Name *<input name="name" autocomplete="name" required><small class="err"></small></label>
+            <label class="wf">Business Name *<input name="business" autocomplete="organization" required><small class="err"></small></label>
+            <label class="wf">Phone / WhatsApp *<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="10-digit mobile"><small class="err"></small></label>
+            <label class="wf"><span>Email <span class="opt">(optional)</span></span><input name="email" type="email" autocomplete="email"><small class="err"></small></label>
+            <label class="wf">Business Category *
+              <select name="category" required>
+                <option value="">Select your industry</option>
+                <option>Hotel / Resort</option><option>Restaurant / Café / Cloud Kitchen</option><option>Hospital / Clinic / Healthcare</option><option>Jewellery Store</option><option>Salon / Spa</option><option>Real Estate</option><option>Retail / Local Shop</option><option>Professional / Personal Brand</option><option>Other</option>
+              </select><small class="err"></small></label>
+            <label class="wf">Approximate Budget
+              <select name="budget"><option value="">Not sure yet</option><option>₹2,000 – ₹5,000</option><option>₹5,000 – ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000+</option></select></label>
+            <fieldset class="wf full"><legend>What do you need? *</legend>
+              <div class="wf-chips">
+                <label><input type="radio" name="need" value="New Website"><span>New Website</span></label>
+                <label><input type="radio" name="need" value="Redesign"><span>Redesign</span></label>
+                <label><input type="radio" name="need" value="E-commerce"><span>E-commerce</span></label>
+                <label><input type="radio" name="need" value="Free Website Audit"><span>Free Audit</span></label>
+                <label><input type="radio" name="need" value="Free Homepage Concept"><span>Free Concept</span></label>
+                <label><input type="radio" name="need" value="Other"><span>Other</span></label>
+              </div><small class="err" id="needErr"></small></fieldset>
+            <label class="wf full">Tell Us About Your Business<textarea name="message" rows="3" maxlength="1500" placeholder="What do you offer, who are your customers, and what should your website achieve?"></textarea></label>
+            <div class="hp" aria-hidden="true"><label>Leave empty<input name="botcheck" tabindex="-1" autocomplete="off"></label></div>
+          </div>
+          <div class="wf-foot">
+            <button type="submit" class="wf-submit" id="wfSubmit"><span class="lbl">Get My Free Consultation</span><span class="spin" aria-hidden="true"></span></button>
+            <a href="#" data-whatsapp target="_blank" rel="noopener" class="wf-alt">or chat on WhatsApp</a>
+            <a href="#" data-booking target="_blank" rel="noopener" class="wf-alt">Book a free 15-min call</a>
+          </div>
+          <p class="wf-status" id="wfStatus" role="status" aria-live="polite"></p>
+        </div>
+        <div class="wf-success" id="wfSuccess" hidden tabindex="-1">
+          <div class="ok" aria-hidden="true">✓</div>
+          <h2>Your place in the city is reserved.</h2>
+          <p id="wfSuccessText">We'll reach out personally within one working day.</p>
+          <a href="#" data-booking target="_blank" rel="noopener" class="fin-btn primary">Book a 15-min call</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="w-toast" id="wToast" role="status" aria-live="polite"></div>
+
+  <!-- Floating WhatsApp -->
+  <a class="w-wa" href="#" data-whatsapp target="_blank" rel="noopener" aria-label="Chat with Digital Dukan on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.36 4 14.98c0 2.3.66 4.5 1.9 6.4L4 29l7.82-1.86a12.1 12.1 0 0 0 4.22.76h.01C22.67 27.9 28 22.54 28 15.92 28 9.3 22.68 3 16.04 3Zm5.3 15.4c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.14-.19.3-.75.94-.92 1.13-.17.2-.34.22-.63.07-.29-.14-1.22-.45-2.33-1.43-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.15-.17.2-.29.29-.48.1-.2.05-.37-.02-.51-.07-.15-.66-1.57-.9-2.15-.24-.57-.48-.49-.66-.5h-.56c-.2 0-.51.07-.78.36-.27.3-1.02 1-1.02 2.42 0 1.43 1.05 2.82 1.2 3.01.14.2 2.06 3.13 4.98 4.39.7.3 1.24.48 1.66.61.7.22 1.34.19 1.84.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34Z"/></svg>
+  </a>
+
+  <!-- Scroll length for the camera journey -->
+  <div class="journey" id="journey" aria-hidden="true"></div>
+
+  <noscript><div class="nojs">This cinematic experience needs JavaScript. <a href="index.html">Visit the classic Digital Dukan website</a>.</div></noscript>
+  <div class="nogl" id="noGL" hidden>
+    <h2>Your device can't show the 3D city right now.</h2>
+    <p>Everything is still available on our classic website — same work, same pricing, same people.</p>
+    <a class="fin-btn primary" href="index.html">Go to the classic website →</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/config.js" defer></script>
+  <script type="module" src="assets/js/world/main.js"></script>
+</body>
+</html>
