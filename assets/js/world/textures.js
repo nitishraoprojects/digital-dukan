@@ -97,7 +97,7 @@ const THEMES = {
   salon: { bg: "#f4e4de", fg: "#2e2724", ac: "#c97b6c", title: "Nūr Salon", tag: "Book a slot", serif: "Italiana", frames: ["Slow down. Glow up.", "Bridal packages", "Prices you can see"] },
   cloth: { bg: "#2a1f3d", fg: "#f3e8ff", ac: "#b07cff", title: "Thread Story", tag: "Shop the edit", serif: "Fraunces", frames: ["Handloom, made here", "Festive collection", "New arrivals weekly"] },
   elec: { bg: "#0f1b2d", fg: "#e6f2ff", ac: "#57c8ff", title: "Volt Corner", tag: "Get a quote", serif: "JetBrains Mono", frames: ["Repairs in 1 hour", "Phones on EMI", "Genuine accessories"] },
-  dd: { bg: "#0a0c1c", fg: "#f6f1e7", ac: "#ff8a3d", title: "Digital Dukan", tag: "Build my website", serif: "Fraunces", frames: ["Your business deserves a website", "From ₹2,000", "Taking local businesses digital"] }
+  dd: { bg: "#0a0c1c", fg: "#f6f1e7", ac: "#ff8a3d", title: "Nikavi Studio", tag: "Build my website", serif: "Fraunces", frames: ["Your business deserves a website", "From ₹2,000", "Taking local businesses digital"] }
 };
 
 const screens = [];
@@ -167,7 +167,7 @@ export function tickScreens(dt) {
 /** Redraw everything once web fonts have loaded. */
 export function refreshScreens() { screens.forEach(drawScreen); }
 
-/** Digital Dukan emblem for the tower. */
+/** Nikavi Studio emblem for the tower. */
 export function ddEmblem() {
   return canvasTexture(1024, 1024, (ctx, w, h) => {
     ctx.clearRect(0, 0, w, h);
@@ -175,17 +175,13 @@ export function ddEmblem() {
     ctx.shadowColor = "#ff8a3d"; ctx.shadowBlur = 60;
     ctx.fillStyle = "#f6f1e7"; rr(ctx, -200, -200, 400, 400, 90); ctx.fill();
     ctx.shadowBlur = 0;
-    ctx.fillStyle = "#e8772e";
-    ctx.beginPath(); ctx.moveTo(-150, -90); ctx.lineTo(150, -90); ctx.lineTo(150, -40);
-    for (let i = 3; i >= 0; i--) { const cx = -150 + i * 75 + 37.5; ctx.arc(cx, -40, 37.5, 0, Math.PI, false); }
-    ctx.closePath(); ctx.fill();
-    ctx.strokeStyle = "#16140f"; ctx.lineWidth = 28; ctx.lineCap = "round"; ctx.lineJoin = "round";
-    ctx.beginPath(); ctx.moveTo(-120, 30); ctx.lineTo(-120, 130); ctx.lineTo(120, 130); ctx.lineTo(120, 30); ctx.stroke();
-    ctx.fillStyle = "#16140f"; rr(ctx, -38, 60, 76, 76, 12); ctx.fill();
+    ctx.strokeStyle = "#16140f"; ctx.lineWidth = 46; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.beginPath(); ctx.moveTo(-90, 110); ctx.lineTo(-90, -110); ctx.lineTo(80, 110); ctx.lineTo(80, -110); ctx.stroke();
+    ctx.fillStyle = "#e8772e"; ctx.beginPath(); ctx.arc(140, 105, 30, 0, 7); ctx.fill();
     ctx.restore();
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.shadowColor = "#ff8a3d"; ctx.shadowBlur = 30; ctx.fillStyle = "#fff4e6";
-    ctx.font = "400 120px Fraunces, serif"; ctx.fillText("Digital Dukan", w / 2, h * 0.76);
+    ctx.font = "400 120px Fraunces, serif"; ctx.fillText("Nikavi Studio", w / 2, h * 0.76);
     ctx.shadowBlur = 16; ctx.fillStyle = "#ffc76b"; ctx.font = "500 34px 'JetBrains Mono', monospace";
     ctx.fillText("T A K I N G   L O C A L   B U S I N E S S E S   D I G I T A L", w / 2, h * 0.88);
   });

@@ -35,6 +35,6 @@
   const today = new Date().toISOString().slice(0, 10);
   document.querySelectorAll("input[type=date]").forEach((d) => (d.min = today));
 
-  // When shown inside the Digital Dukan showcase iframe, hide the banner for a cleaner preview
+  // When shown inside the Nikavi Studio showcase iframe, hide the banner for a cleaner preview
   if (window.self !== window.top) document.documentElement.classList.add("in-frame");
 })();

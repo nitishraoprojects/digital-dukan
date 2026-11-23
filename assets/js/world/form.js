@@ -110,7 +110,7 @@ export function setupForms({ onOpen, onClose, audio } = {}) {
     const fd = new FormData(form);
     const d = Object.fromEntries(fd.entries());
     if (d.botcheck) { success(); return; }
-    const summary = ["Hi Digital Dukan! I'd like a free consultation.", `Name: ${d.name}`, `Business: ${d.business} (${d.category})`, `Need: ${d.need}`, `Budget: ${d.budget || "Not sure yet"}`, `Phone: ${d.phone}`, d.email && `Email: ${d.email}`, d.message && `About: ${d.message}`].filter(Boolean).join("\n");
+    const summary = ["Hi Nikavi Studio! I'd like a free consultation.", `Name: ${d.name}`, `Business: ${d.business} (${d.category})`, `Need: ${d.need}`, `Budget: ${d.budget || "Not sure yet"}`, `Phone: ${d.phone}`, d.email && `Email: ${d.email}`, d.message && `About: ${d.message}`].filter(Boolean).join("\n");
 
     const cfg = CFG.form || {};
     const configured = !!(cfg.endpoint && (cfg.accessKey || !/web3forms\.com/.test(cfg.endpoint)));
@@ -122,7 +122,7 @@ export function setupForms({ onOpen, onClose, audio } = {}) {
     btn.disabled = true; btn.classList.add("loading"); lbl.textContent = "Sending…";
     const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), cfg.timeoutMs || 15000);
     try {
-      const payload = { subject: `${cfg.subject || "New enquiry"} — ${d.business}`, from_name: "Digital Dukan City", name: d.name, business: d.business, phone: d.phone, email: d.email || undefined, replyto: d.email || undefined, category: d.category, need: d.need, budget: d.budget || "Not sure yet", message: d.message || "(not provided)", page: location.href };
+      const payload = { subject: `${cfg.subject || "New enquiry"} — ${d.business}`, from_name: "Nikavi Studio City", name: d.name, business: d.business, phone: d.phone, email: d.email || undefined, replyto: d.email || undefined, category: d.category, need: d.need, budget: d.budget || "Not sure yet", message: d.message || "(not provided)", page: location.href };
       if (cfg.accessKey) payload.access_key = cfg.accessKey;
       const res = await fetch(cfg.endpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload), signal: ctrl.signal });
       let body = {}; try { body = await res.json(); } catch {}

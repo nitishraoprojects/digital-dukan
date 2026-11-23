@@ -1,4 +1,4 @@
-# Digital Dukan — Agency Website
+# Nikavi Studio — Agency Website
 
 Static site built with **HTML, CSS, Bootstrap 5.3, Motion (vanilla JS) and Lucide icons**. No build step.
 
@@ -27,7 +27,7 @@ Until these are filled:
 
 To use Formspree or your own API instead of Web3Forms, set `form.endpoint` to that URL and leave `accessKey` empty. The form POSTs JSON.
 
-Also replace `https://www.digitaldukan.in/` in `index.html` (canonical + Open Graph), `robots.txt` and `sitemap.xml` with your real domain, and add a 1200×630 `og:image` once you have brand imagery.
+When you get a custom domain, replace `https://nitishraoprojects.github.io/digital-dukan/` in `index.html` and `world.html` (canonical + Open Graph), `robots.txt` and `sitemap.xml` with it, and add a 1200×630 `og:image` once you have brand imagery.
 
 ## Run locally
 
@@ -48,7 +48,7 @@ Upload the folder to any static host: Netlify (drag & drop), Vercel, GitHub Page
 
 ## The Digital City (`world.html`)
 
-A cinematic, scroll-driven 3D experience: a portal intro → flight into the city → five districts where storefront doors open and the business's website emerges into the street → the Digital Dukan tower finale with pricing and the lead form.
+A cinematic, scroll-driven 3D experience: a portal intro → flight into the city → five districts where storefront doors open and the business's website emerges into the street → the Nikavi Studio tower finale with pricing and the lead form.
 
 - **Stack:** Three.js r160 (ES modules via import map) + GSAP 3.12 ScrollTrigger. No framework, no build step, no downloaded 3D assets — the city, people, vehicles and screens are all generated in code.
 - **Files:** `assets/js/world/` — `main.js` (renderer, camera path, time of day, holograms), `city.js` (districts, buildings, vehicles, tower), `people.js` (tiny animated characters), `effects.js` (sky, particles, fountain), `textures.js` (neon signs, animated website billboards), `audio.js` (synthesised sound, off by default), `form.js` (lead form — same config as the classic site).
