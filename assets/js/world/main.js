@@ -1,4 +1,4 @@
-// Nikavi Studio — The City of Digital Possibilities
+// Nikavi Labs — The City of Digital Possibilities
 // Vanilla Three.js + GSAP ScrollTrigger. No framework.
 import * as THREE from "three";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";

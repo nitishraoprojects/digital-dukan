@@ -1,5 +1,5 @@
 /**
- * Nikavi Studio — site configuration
+ * Nikavi Labs — site configuration
  * ------------------------------------------------------------
  * Replace every value marked TODO with your real details.
  * Nothing else in the codebase needs to change.
@@ -27,13 +27,13 @@ window.DD_CONFIG = {
   form: {
     endpoint: "https://api.web3forms.com/submit",
     accessKey: "", // TODO: Web3Forms access key
-    subject: "New website enquiry — Nikavi Studio",
+    subject: "New website enquiry — Nikavi Labs",
     timeoutMs: 15000
   },
 
   // TODO: Social profile URLs. Leave empty to hide a link.
   socials: {
-    instagram: "", // TODO: e.g. "https://www.instagram.com/nikavistudio"
+    instagram: "", // TODO: e.g. "https://www.instagram.com/nikavilabs"
     linkedin: "",
     facebook: ""
   }

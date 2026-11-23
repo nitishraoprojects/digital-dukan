@@ -250,7 +250,7 @@ export function buildCity(scene, env, Q) {
       const l2 = l.clone(); l2.position.x = s * 11 + s * 1.25; gate.add(l2);
     }
     const beam = new THREE.Mesh(new THREE.BoxGeometry(25, 2.6, 2.6), pm); beam.position.set(0, 21, 0); gate.add(beam);
-    const sign = new THREE.Mesh(new THREE.PlaneGeometry(18, 4.5), new THREE.MeshBasicMaterial({ map: neonSign("NIKAVI STUDIO", { color: "#ffb36b", font: "400 118px Fraunces", sub: "WELCOME TO THE CITY", subColor: "#8fe3ff" }), transparent: true, toneMapped: false, depthWrite: false }));
+    const sign = new THREE.Mesh(new THREE.PlaneGeometry(18, 4.5), new THREE.MeshBasicMaterial({ map: neonSign("NIKAVI LABS", { color: "#ffb36b", font: "400 118px Fraunces", sub: "WELCOME TO THE CITY", subColor: "#8fe3ff" }), transparent: true, toneMapped: false, depthWrite: false }));
     sign.position.set(0, 21, 1.35); gate.add(sign);
     const ring = new THREE.Mesh(new THREE.TorusGeometry(7.5, 0.12, 8, 96), glow("#8fe3ff", 2.2));
     ring.position.set(0, 11, 0); gate.add(ring);

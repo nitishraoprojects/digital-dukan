@@ -1,5 +1,5 @@
 /* =========================================================
-   Nikavi Studio — interactions
+   Nikavi Labs — interactions
    Motion (vanilla) for animation, plain JS for everything else.
    Every feature degrades gracefully if a CDN script fails.
    ========================================================= */
@@ -50,7 +50,7 @@
   const yr = $("#year"); if (yr) yr.textContent = new Date().getFullYear();
 
   if (!CFG.bookingUrl || /^910+$/.test(waNumber)) {
-    console.info("[Nikavi Studio] Placeholder contact settings detected. Update assets/js/config.js before launch.");
+    console.info("[Nikavi Labs] Placeholder contact settings detected. Update assets/js/config.js before launch.");
   }
 
   /* ---------- Header: scrolled state, hide on scroll down ---------- */
@@ -378,7 +378,7 @@
 
   const waSummary = (d) =>
     [
-      "Hi Nikavi Studio! I'd like a free consultation.",
+      "Hi Nikavi Labs! I'd like a free consultation.",
       `Name: ${d.name}`,
       `Business: ${d.business} (${d.category})`,
       `Need: ${d.need}`,
@@ -434,7 +434,7 @@
 
     // No backend configured yet → hand the enquiry off to WhatsApp so no lead is lost.
     if (!configured) {
-      console.warn("[Nikavi Studio] Form endpoint not configured; routing enquiry to WhatsApp.");
+      console.warn("[Nikavi Labs] Form endpoint not configured; routing enquiry to WhatsApp.");
       window.open(waLink(waSummary(data)), "_blank", "noopener");
       showSuccess("We've opened WhatsApp with your details filled in — just press send and we'll take it from there.");
       return;
@@ -446,7 +446,7 @@
     try {
       const payload = {
         subject: `${cfg.subject || "New enquiry"} — ${data.business}`,
-        from_name: "Nikavi Studio Website",
+        from_name: "Nikavi Labs Website",
         name: data.name,
         business: data.business,
         phone: data.phone,
@@ -474,7 +474,7 @@
       form.reset();
       showSuccess(`Thanks, ${data.name.split(" ")[0]}! We'll reach out personally within one working day. Want to move faster?`);
     } catch (err) {
-      console.error("[Nikavi Studio] Form submission failed:", err);
+      console.error("[Nikavi Labs] Form submission failed:", err);
       status.innerHTML = "";
       status.classList.add("error");
       status.append(

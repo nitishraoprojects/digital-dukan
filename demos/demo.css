@@ -1,4 +1,4 @@
-/* Shared base for Nikavi Studio concept demos */
+/* Shared base for Nikavi Labs concept demos */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
