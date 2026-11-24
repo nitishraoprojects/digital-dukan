@@ -27,7 +27,7 @@ Until these are filled:
 
 To use Formspree or your own API instead of Web3Forms, set `form.endpoint` to that URL and leave `accessKey` empty. The form POSTs JSON.
 
-When you get a custom domain, replace `https://nitishraoprojects.github.io/digital-dukan/` in `index.html` and `world.html` (canonical + Open Graph), `robots.txt` and `sitemap.xml` with it, and add a 1200×630 `og:image` once you have brand imagery.
+When you get a custom domain, replace `https://nikavi.pages.dev/` in `index.html` and `world.html` (canonical + Open Graph), `robots.txt` and `sitemap.xml` with it, and add a 1200×630 `og:image` once you have brand imagery.
 
 ## Run locally
 

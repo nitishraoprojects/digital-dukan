@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /demos/
 
-Sitemap: https://nitishraoprojects.github.io/digital-dukan/sitemap.xml
+Sitemap: https://nikavi.pages.dev/sitemap.xml
